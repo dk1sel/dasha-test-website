@@ -132,7 +132,7 @@
     places.get(key).push(e);
   }
 
-  const style = { radius: 8, color: '#e6c88c', weight: 2, fillColor: '#c9a25e', fillOpacity: 0.85 };
+  const style = { radius: 8, color: '#e6c88c', weight: 2, fillColor: '#c9a45c', fillOpacity: 0.85 };
   const activeStyle = { radius: 12, fillColor: '#f6f0e4', fillOpacity: 1 };
 
   function setActive(ids, on) {

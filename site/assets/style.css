@@ -8,7 +8,7 @@
   --ivory-2: #ebe2d0;
   --ink: #221a22;
   --ink-soft: #5c5058;
-  --brass: #c9a25e;
+  --brass: #c9a45c; /* = Logo-Gold */
   --brass-light: #e6c88c;
   --brass-dark: #7a5c25; /* dunkler für Kontrast ≥ 4,5:1 auf hellem Grund */
   --felt: #6b1f2a;
@@ -54,6 +54,8 @@ a { color: inherit; }
 .nav { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; width: min(1120px, 100% - 3rem); margin: 0 auto; padding: 1.6rem 0; }
 .nav__brand { font-family: var(--serif); font-size: 1.5rem; letter-spacing: .12em; text-decoration: none; }
 .nav__brand span { color: var(--brass); }
+.nav__brand img { display: block; width: auto; height: 76px; margin: -14px 0 -14px -14px; } /* SVG hat Innenrand, deshalb größer + negativer Rand */
+@media (max-width: 440px) { .nav__brand img { height: 60px; margin: -10px 0 -10px -10px; } }
 .nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
 .nav ul a { text-decoration: none; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; opacity: .85; padding-bottom: .3rem; border-bottom: 1px solid transparent; transition: border-color .2s, opacity .2s; }
 .nav ul a:hover { opacity: 1; border-color: var(--brass); }

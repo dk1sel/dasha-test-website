@@ -38,5 +38,6 @@ npm run serve          # http://localhost:8080
 - Texte: `site/index.html`
 - Impressum und Datenschutz: `site/impressum.html`, `site/datenschutz.html` (Platzhalter „Erika Mustermann“ ersetzen)
 - Galerie: Bilder in `site/assets/galerie/` (je `name.jpg` und `name-klein.jpg`), Einträge in `site/index.html` im Abschnitt `#galerie`, Quellen in `site/assets/galerie/QUELLEN.md`
+- Logo: `site/assets/logo/` (transparente Variante oben links, dunkle Kachel als Favicon/App-Symbol)
 - Hero-Bild: `site/assets/hero.svg` ersetzen (oder `hero.jpg` und `src` in `index.html` ändern)
 - Farben: CSS-Variablen oben in `site/assets/style.css`
