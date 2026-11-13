@@ -124,3 +124,14 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(1
   .event { grid-template-columns: 4rem 1fr; gap: 1rem; }
   .event__day { font-size: 2.3rem; }
 }
+
+/* ---------- Rechtliche Seiten (Impressum, Datenschutz) ---------- */
+.page-header { background: var(--ebony); color: var(--ivory); border-bottom: 3px solid var(--felt); }
+.legal { background: var(--ivory); color: var(--ink); padding: clamp(3.5rem, 8vw, 6rem) 0; }
+.legal__inner { width: min(46rem, 100% - 3rem); margin-inline: auto; }
+.legal .eyebrow { color: var(--brass-dark); }
+.legal h3 { font-size: 1.7rem; margin: 2.6rem 0 .8rem; }
+.legal p, .legal li { color: var(--ink-soft); }
+.legal ul { padding-left: 1.2rem; margin: 0 0 1.2em; }
+.legal address { font-style: normal; margin-bottom: 1.2em; }
+.legal .note { border-left: 3px solid var(--brass); padding: .8rem 1.2rem; background: var(--ivory-2); font-size: .92rem; }
