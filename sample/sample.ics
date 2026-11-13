@@ -1,0 +1,63 @@
+BEGIN:VCALENDAR
+PRODID:-//Sample//Portfolio//DE
+VERSION:2.0
+CALSCALE:GREGORIAN
+X-WR-TIMEZONE:Europe/Berlin
+BEGIN:VTIMEZONE
+TZID:Europe/Berlin
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:sample-1@example.org
+DTSTART:20261201T183000Z
+DTEND:20261201T203000Z
+SUMMARY:Klavierabend – Schubert & Skrjabin
+LOCATION:Laeiszhalle\, Johannes-Brahms-Platz\, 20355 Hamburg
+DESCRIPTION:Schubert: Sonate B-Dur D 960<br>Skrjabin: Sonate Nr. 2 gis-Moll
+ <br><a href="https://example.org/tickets/hamburg">Karten</a>
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-2@example.org
+DTSTART;TZID=Europe/Berlin:20270116T200000
+DTEND;TZID=Europe/Berlin:20270116T220000
+SUMMARY:Kammermusik: Brahms Klavierquintett
+LOCATION:Gewandhaus zu Leipzig\, Augustusplatz 8\, 04109 Leipzig
+DESCRIPTION:Mit dem Auriga Quartett.
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-3@example.org
+DTSTART;TZID=Europe/Berlin:20270307T110000
+DTEND;TZID=Europe/Berlin:20270307T123000
+SUMMARY:Matinee – Clara Schumann & Fanny Hensel
+LOCATION:Beethoven-Haus\, Bonngasse 20\, 53111 Bonn
+URL:https://example.org/tickets/bonn
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-4@example.org
+DTSTART;VALUE=DATE:20270514
+DTEND;VALUE=DATE:20270517
+SUMMARY:Meisterkurs Klavier
+LOCATION:Schloss Elmau\, 82493 Krün
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-5@example.org
+DTSTART;TZID=Europe/Berlin:20270619T193000
+DTEND;TZID=Europe/Berlin:20270619T213000
+SUMMARY:Ravel: Klavierkonzert G-Dur
+LOCATION:Wiener Konzerthaus\, Lothringerstraße 20\, 1030 Wien
+DESCRIPTION:Solistin mit Orchester. Programm folgt.
+END:VEVENT
+END:VCALENDAR

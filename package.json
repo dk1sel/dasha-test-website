@@ -1,0 +1,16 @@
+{
+  "name": "pianistin-portfolio",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "build:sample": "node scripts/build.mjs --sample",
+    "serve": "python3 -m http.server 8080 --directory site"
+  },
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/inter": "^5.3.0",
+    "ical.js": "^2.2.1",
+    "leaflet": "^1.9.4"
+  }
+}

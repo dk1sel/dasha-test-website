@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Elena Marwald – Pianistin</title>
+  <meta name="description" content="Elena Marwald, Pianistin. Biografie, Repertoire und aktuelle Konzerttermine.">
+  <meta name="theme-color" content="#0f0c14">
+  <link rel="preload" href="vendor/fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="hero" id="top">
+  <!-- Hero-Bild: assets/hero.svg durch ein eigenes Foto ersetzen (z. B. assets/hero.jpg) -->
+  <img class="hero__image" src="assets/hero.svg" alt="" aria-hidden="true">
+  <nav class="nav" aria-label="Hauptnavigation">
+    <a class="nav__brand" href="#top">E<span>·</span>M</a>
+    <ul>
+      <li><a href="#ueber">Über mich</a></li>
+      <li><a href="#konzerte">Konzerte</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+  <div class="hero__content">
+    <p class="eyebrow">Pianistin</p>
+    <h1>Elena<br>Marwald</h1>
+    <p class="hero__lead">Klavierabende, Kammermusik und Konzerte&nbsp;– zwischen Schubert, Skrjabin und der Musik unserer Zeit.</p>
+    <a class="button" href="#konzerte">Nächste Konzerte</a>
+  </div>
+</header>
+
+<main>
+  <section class="section section--light" id="ueber">
+    <div class="wrap about">
+      <div class="about__text">
+        <p class="eyebrow">Über mich</p>
+        <h2>Musik, die zuhört</h2>
+        <p class="lead">Seit ich mit fünf Jahren zum ersten Mal an einem verstimmten Klavier im Haus meiner Großmutter saß, begleitet mich die Frage, wie ein einzelner Ton einen ganzen Raum verändern kann.</p>
+        <p>Aufgewachsen in Freiburg, erhielt ich meinen ersten Unterricht an der dortigen Musikschule und wechselte mit sechzehn als Jungstudentin an die Hochschule für Musik. Es folgten Studienjahre in Leipzig und Wien, Meisterkurse und prägende Begegnungen mit Lehrerinnen und Lehrern, die mir vor allem eines beigebracht haben: geduldig zu hören.</p>
+        <p>Heute spiele ich Solorezitale und Kammermusik in Konzertsälen und auf Festivals im In- und Ausland. Mein Repertoire reicht von Bach bis in die Gegenwart; besonders am Herzen liegen mir das Spätwerk Schuberts, die Klaviermusik Skrjabins und die oft übersehenen Werke von Komponistinnen wie Clara Schumann und Fanny Hensel.</p>
+        <p>Neben dem Konzertieren unterrichte ich leidenschaftlich gern&nbsp;– in Meisterkursen und mit einer kleinen eigenen Klasse.</p>
+      </div>
+      <aside class="about__aside">
+        <blockquote>
+          <p>„Das Schönste am Klavier ist der Moment, bevor der erste Ton erklingt.“</p>
+        </blockquote>
+        <dl class="facts">
+          <div><dt>Ausbildung</dt><dd>Freiburg · Leipzig · Wien</dd></div>
+          <div><dt>Schwerpunkte</dt><dd>Schubert, Skrjabin, Komponistinnen der Romantik</dd></div>
+          <div><dt>Formate</dt><dd>Rezital, Kammermusik, Solokonzert, Meisterkurs</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--dark" id="konzerte">
+    <div class="wrap">
+      <p class="eyebrow">Konzerte</p>
+      <h2>Termine</h2>
+      <div class="events">
+        <ol class="events__list" id="event-list" aria-live="polite">
+          <li class="events__empty">Termine werden geladen …</li>
+        </ol>
+        <div class="events__map-wrap">
+          <div class="events__map" id="map" role="region" aria-label="Karte der Veranstaltungsorte"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="kontakt">
+    <div class="wrap contact">
+      <p class="eyebrow">Kontakt</p>
+      <h2>Anfragen &amp; Engagements</h2>
+      <p class="lead">Für Konzertanfragen, Presse und Unterricht schreiben Sie mir gern.</p>
+      <a class="button button--dark" href="mailto:kontakt@example.org">kontakt@example.org</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <span>© <span id="year">2026</span> Elena Marwald</span>
+    <span><a href="#">Impressum</a> · <a href="#">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
