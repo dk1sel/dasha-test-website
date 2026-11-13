@@ -99,6 +99,7 @@
       a.href = e.url;
       a.target = '_blank';
       a.rel = 'noopener';
+      a.setAttribute('aria-label', `Karten & Infos: ${e.title} (öffnet neuen Tab)`);
       body.append(a);
     }
 
@@ -156,11 +157,20 @@
     for (const e of group) {
       const li = items.get(e.id);
       li.classList.add('event--mapped');
-      li.addEventListener('click', (ev) => {
-        if (ev.target.closest('a')) return;
+      const showOnMap = () => {
         map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 12), { duration: 0.8 });
         marker.openPopup();
+      };
+      li.addEventListener('click', (ev) => {
+        if (ev.target.closest('a, button')) return;
+        showOnMap();
       });
+      // Für Tastatur und Screenreader: eigener Button statt nur Klick auf den Listeneintrag
+      const btn = el('button', 'event__show', 'Auf der Karte zeigen');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', `${e.title} auf der Karte zeigen`);
+      btn.addEventListener('click', () => { showOnMap(); mapEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); });
+      li.querySelector('div').append(btn);
     }
   }
 
