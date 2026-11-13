@@ -55,13 +55,17 @@
   const endOf = (e) => (e.allDay ? new Date(new Date(e.end + 'T12:00:00Z').getTime() - 864e5) : new Date(e.end));
   const lastMoment = (e) => (e.allDay ? new Date(e.end + 'T00:00:00Z') : new Date(e.end));
 
-  // Die Seite wird nur periodisch neu gebaut – Vergangenes hier nochmals ausfiltern.
+  // Die Seite wird nur einmal täglich neu gebaut – daher hier zur Laufzeit trennen:
+  // kommende Termine oben, vergangene (bis 90 Tage) gedämpft in eigenem Abschnitt.
   const now = new Date();
-  const events = data.events.filter((e) => lastMoment(e) >= now);
-  if (!events.length) {
-    showEmpty('Zurzeit sind keine Konzerte angekündigt. Neue Termine folgen in Kürze.');
-    return;
-  }
+  const PAST_DAYS = 90;
+  const pastLimit = new Date(now.getTime() - PAST_DAYS * 864e5);
+  const upcoming = data.events.filter((e) => lastMoment(e) >= now);
+  const past = data.events
+    .filter((e) => lastMoment(e) < now && lastMoment(e) >= pastLimit)
+    .sort((a, b) => startOf(b) - startOf(a)); // neueste zuerst
+  past.forEach((e) => (e.past = true));
+  const events = [...upcoming, ...past];
 
   function whenText(e) {
     const s = startOf(e);
@@ -77,24 +81,27 @@
     return n;
   }
 
-  list.textContent = '';
   const items = new Map();
-  for (const e of events) {
+  function render(e, target) {
     const s = startOf(e);
-    const li = el('li', 'event');
+    const li = el('li', e.past ? 'event event--past' : 'event');
 
     const date = el('time', 'event__date');
     date.dateTime = e.start;
     date.append(el('span', 'event__day', fDay.format(s)), el('span', 'event__month', fMonth.format(s)));
 
     const body = el('div');
-    body.append(el('h3', 'event__title', e.title));
+    const title = el(e.past ? 'h4' : 'h3', 'event__title');
+    if (e.past) title.append(el('span', 'event__badge', 'Vergangen'), ' ');
+    title.append(e.title);
+    body.append(title);
     const meta = el('p', 'event__meta');
     meta.append(el('span', null, whenText(e)));
     if (e.location) meta.append(el('span', null, e.location));
     body.append(meta);
-    if (e.description) body.append(el('p', 'event__desc', e.description));
-    if (e.url && /^https?:\/\//.test(e.url)) {
+    if (e.description && !e.past) body.append(el('p', 'event__desc', e.description));
+    // Ticket-Link nur bei kommenden Terminen
+    if (!e.past && e.url && /^https?:\/\//.test(e.url)) {
       const a = el('a', 'event__link', 'Karten & Infos');
       a.href = e.url;
       a.target = '_blank';
@@ -104,8 +111,23 @@
     }
 
     li.append(date, body);
-    list.append(li);
+    target.append(li);
     items.set(e.id, li);
+  }
+
+  list.textContent = '';
+  if (upcoming.length) upcoming.forEach((e) => render(e, list));
+  else list.append(el('li', 'events__empty', 'Zurzeit sind keine Konzerte angekündigt. Neue Termine folgen in Kürze.'));
+
+  if (past.length) {
+    const pastList = document.getElementById('past-list');
+    past.forEach((e) => render(e, pastList));
+    document.getElementById('past-events').hidden = false;
+  }
+
+  if (!events.length) {
+    showEmpty('Zurzeit sind keine Konzerte angekündigt. Neue Termine folgen in Kürze.');
+    return;
   }
 
   // ---- Karte ----
@@ -133,26 +155,31 @@
   }
 
   const style = { radius: 8, color: '#e6c88c', weight: 2, fillColor: '#c9a45c', fillOpacity: 0.85 };
+  const pastStyle = { radius: 6, color: '#9a9088', weight: 2, fillColor: '#3a3440', fillOpacity: 0.9, dashArray: '2 3' };
   const activeStyle = { radius: 12, fillColor: '#f6f0e4', fillOpacity: 1 };
 
   function setActive(ids, on) {
     for (const id of ids) items.get(id).classList.toggle('is-active', on);
   }
 
-  for (const group of places.values()) {
+  // Orte nur mit vergangenen Terminen zuerst zeichnen, damit kommende obenauf liegen
+  const groups = [...places.values()].sort((a, b) => a.every((e) => e.past) ? -1 : b.every((e) => e.past) ? 1 : 0);
+  for (const group of groups) {
     const popup = el('div');
     group.forEach((e, i) => {
       if (i) popup.append(el('hr'));
       popup.append(
         el('strong', null, e.title),
-        el('span', 'popup__when', `${fShort.format(startOf(e))} · ${whenText(e)}`),
+        el('span', 'popup__when', `${e.past ? 'Vergangen · ' : ''}${fShort.format(startOf(e))} · ${whenText(e)}`),
         el('span', null, e.location),
       );
     });
     const ids = group.map((e) => e.id);
-    const marker = L.circleMarker([group[0].lat, group[0].lon], style).addTo(map).bindPopup(popup);
+    // Ort nur mit vergangenen Terminen -> grauer, gestrichelter Marker
+    const base = group.every((e) => e.past) ? pastStyle : style;
+    const marker = L.circleMarker([group[0].lat, group[0].lon], base).addTo(map).bindPopup(popup);
     marker.on('popupopen', () => { marker.setStyle(activeStyle); setActive(ids, true); });
-    marker.on('popupclose', () => { marker.setStyle(style); setActive(ids, false); });
+    marker.on('popupclose', () => { marker.setStyle(base); setActive(ids, false); });
 
     for (const e of group) {
       const li = items.get(e.id);

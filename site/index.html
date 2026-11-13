@@ -64,9 +64,15 @@
       <p class="eyebrow">Konzerte</p>
       <h2>Termine</h2>
       <div class="events">
-        <ol class="events__list" id="event-list" aria-live="polite">
-          <li class="events__empty">Termine werden geladen …</li>
-        </ol>
+        <div class="events__lists">
+          <ol class="events__list" id="event-list" aria-live="polite">
+            <li class="events__empty">Termine werden geladen …</li>
+          </ol>
+          <div class="events__past" id="past-events" hidden>
+            <h3 class="events__past-title">Vergangene Konzerte</h3>
+            <ol class="events__list events__list--past" id="past-list"></ol>
+          </div>
+        </div>
         <div class="events__map-wrap">
           <div class="events__map" id="map" role="region" aria-label="Karte der Veranstaltungsorte"></div>
         </div>

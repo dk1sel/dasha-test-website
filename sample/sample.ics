@@ -21,6 +21,28 @@ RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
+UID:sample-past-1@example.org
+DTSTART;TZID=Europe/Berlin:20261018T180000
+DTEND;TZID=Europe/Berlin:20261018T200000
+SUMMARY:Generalbass-Abend – Corelli & Händel
+LOCATION:Alte Oper\, Opernplatz 1\, 60313 Frankfurt am Main
+URL:https://example.org/tickets/frankfurt
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-past-2@example.org
+DTSTART;TZID=Europe/Berlin:20260912T193000
+DTEND;TZID=Europe/Berlin:20260912T213000
+SUMMARY:Rameau: Pièces de clavecin
+LOCATION:Konzerthaus Karlsruhe\, Festplatz 9\, 76137 Karlsruhe
+END:VEVENT
+BEGIN:VEVENT
+UID:sample-past-old@example.org
+DTSTART;TZID=Europe/Berlin:20260601T193000
+DTEND;TZID=Europe/Berlin:20260601T213000
+SUMMARY:Älter als 90 Tage (wird nicht angezeigt)
+LOCATION:Gewandhaus zu Leipzig\, Augustusplatz 8\, 04109 Leipzig
+END:VEVENT
+BEGIN:VEVENT
 UID:sample-1@example.org
 DTSTART:20261201T183000Z
 DTEND:20261201T203000Z
