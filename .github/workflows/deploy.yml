@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '17 */6 * * *' # alle 6 Stunden den Kalender neu abrufen
+    - cron: '17 4 * * *' # einmal täglich um 4:17 UTC (5:17 MEZ / 6:17 MESZ) den Kalender neu abrufen
   workflow_dispatch:
 
 permissions:
