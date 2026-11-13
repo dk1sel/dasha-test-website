@@ -24,6 +24,10 @@ Statische Website mit Veranstaltungskalender aus Google Calendar.
 Im Kalender eintragen: Titel, Zeit, **Ort** (am besten „Saal, Straße, PLZ Stadt“) und optional
 eine Beschreibung. Der erste Link in der Beschreibung wird als „Karten & Infos“ verlinkt.
 
+Vergangene Termine bleiben noch 90 Tage sichtbar (`daysPast` in `site.config.json`, im Browser
+zusätzlich in `site/assets/app.js`). Sie stehen unter „Vergangene Konzerte“, neueste zuerst, mit
+Label „Vergangen“, ohne Ticket-Link und mit grauem, gestricheltem Marker auf der Karte.
+
 ## Lokal ansehen
 
 ```sh

@@ -1,5 +1,6 @@
 {
   "calendarIcsUrl": "https://calendar.google.com/calendar/ical/61cd2c5ca9126f2be01eefba362730bb597183f715ae9588cfeab3a8d262f04a%40group.calendar.google.com/public/basic.ics",
   "timeZone": "Europe/Berlin",
-  "monthsAhead": 18
+  "monthsAhead": 18,
+  "daysPast": 90
 }

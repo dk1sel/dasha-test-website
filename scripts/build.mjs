@@ -65,7 +65,8 @@ function parseEvents(icsText) {
   for (const tz of vcal.getAllSubcomponents('vtimezone')) ICAL.TimezoneService.register(tz);
 
   const now = Date.now();
-  const windowStart = now - 24 * 3600 * 1000; // gestern, damit laufende Termine nicht verschwinden
+  // Vergangene Termine bleiben noch daysPast Tage sichtbar (die Seite markiert sie als vergangen)
+  const windowStart = now - (config.daysPast ?? 90) * 24 * 3600 * 1000;
   const windowEnd = now + config.monthsAhead * 31 * 24 * 3600 * 1000;
 
   const vevents = vcal.getAllSubcomponents('vevent');
