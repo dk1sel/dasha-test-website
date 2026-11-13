@@ -90,6 +90,8 @@
   }
 
   const map = L.map(mapEl, { scrollWheelZoom: false });
+  // Leaflet-Präfix ohne Flagge; die OSM-Namensnennung unten bleibt (Pflicht laut ODbL)
+  map.attributionControl.setPrefix('<a href="https://leafletjs.com">Leaflet</a>');
   L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18,
     attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>-Mitwirkende',
