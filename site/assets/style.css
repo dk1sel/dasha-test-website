@@ -49,15 +49,19 @@ a { color: inherit; }
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: min(100svh, 1100px); display: flex; flex-direction: column; color: var(--ivory); overflow: hidden; background: var(--ebony); }
 .hero__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
+/* Cembalo-Tastatur als wiederholte Oktave: Tasten bleiben auf jedem Bildschirm gleich groß */
+.hero__keyboard { position: absolute; left: 0; right: 0; bottom: 0; height: clamp(120px, 15vw, 200px); background: linear-gradient(90deg, rgba(15, 12, 20, .55), rgba(15, 12, 20, 0) 55%), url("hero-keyboard.svg") left bottom / auto 100% repeat-x; }
 .nav { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; width: min(1120px, 100% - 3rem); margin: 0 auto; padding: 1.6rem 0; }
 .nav__brand { font-family: var(--serif); font-size: 1.5rem; letter-spacing: .12em; text-decoration: none; }
 .nav__brand span { color: var(--brass); }
 .nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
 .nav ul a { text-decoration: none; font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; opacity: .85; padding-bottom: .3rem; border-bottom: 1px solid transparent; transition: border-color .2s, opacity .2s; }
 .nav ul a:hover { opacity: 1; border-color: var(--brass); }
-.hero__content { position: relative; z-index: 1; width: min(1120px, 100% - 3rem); margin: auto; padding: 2rem 0 clamp(9rem, 24vh, 15rem); }
+.hero__content { position: relative; z-index: 1; width: min(1120px, 100% - 3rem); margin: auto; padding: 2rem 0 calc(clamp(120px, 15vw, 200px) + clamp(2.5rem, 8vh, 6rem)); }
 .hero h1 { font-size: clamp(4rem, 13vw, 9.5rem); letter-spacing: -.01em; line-height: .92; margin-bottom: 1.8rem; }
 .hero__lead { max-width: 30rem; font-family: var(--serif); font-size: clamp(1.25rem, 2vw, 1.5rem); line-height: 1.4; color: var(--ivory-2); margin-bottom: 2.2rem; }
+
+@media (orientation: portrait) and (min-width: 600px) { .hero { min-height: min(80svh, 1000px); } }
 
 /* ---------- Sections ---------- */
 .section { padding: clamp(4.5rem, 10vw, 8rem) 0; }
@@ -160,3 +164,11 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(1
 .lightbox button:hover { opacity: 1; color: var(--brass-light); }
 .lightbox__close { position: absolute; top: 1rem; right: 1rem; }
 @media (max-width: 560px) { .lightbox figure { max-width: 100%; } .lightbox__nav { position: absolute; bottom: 1rem; } .lightbox__nav--prev { left: 1rem; } .lightbox__nav--next { right: 1rem; } }
+
+/* Navigation auf schmalen Handys: alle Punkte in einer Zeile */
+.nav ul a { white-space: nowrap; }
+@media (max-width: 440px) {
+  .nav ul { gap: .8rem; }
+  .nav ul a { font-size: .64rem; letter-spacing: .06em; }
+  .nav__brand { font-size: 1.25rem; }
+}
