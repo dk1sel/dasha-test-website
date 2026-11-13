@@ -36,5 +36,6 @@ npm run serve          # http://localhost:8080
 ## Anpassen
 
 - Texte: `site/index.html`
+- Impressum und Datenschutz: `site/impressum.html`, `site/datenschutz.html` (Platzhalter „Erika Mustermann“ ersetzen)
 - Hero-Bild: `site/assets/hero.svg` ersetzen (oder `hero.jpg` und `src` in `index.html` ändern)
 - Farben: CSS-Variablen oben in `site/assets/style.css`
