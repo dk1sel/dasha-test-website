@@ -1,4 +1,4 @@
-# Pianistin-Portfolio
+# Cembalistin-Portfolio
 
 Statische Website mit Veranstaltungskalender aus Google Calendar.
 

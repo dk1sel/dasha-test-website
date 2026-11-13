@@ -24,24 +24,24 @@ BEGIN:VEVENT
 UID:sample-1@example.org
 DTSTART:20261201T183000Z
 DTEND:20261201T203000Z
-SUMMARY:Klavierabend – Schubert & Skrjabin
+SUMMARY:Cembalo-Rezital – Bach & Scarlatti
 LOCATION:Laeiszhalle\, Johannes-Brahms-Platz\, 20355 Hamburg
-DESCRIPTION:Schubert: Sonate B-Dur D 960<br>Skrjabin: Sonate Nr. 2 gis-Moll
+DESCRIPTION:Bach: Partita Nr. 6 e-Moll BWV 830<br>Scarlatti: Sonaten
  <br><a href="https://example.org/tickets/hamburg">Karten</a>
 END:VEVENT
 BEGIN:VEVENT
 UID:sample-2@example.org
 DTSTART;TZID=Europe/Berlin:20270116T200000
 DTEND;TZID=Europe/Berlin:20270116T220000
-SUMMARY:Kammermusik: Brahms Klavierquintett
+SUMMARY:Kammermusik: Bach Gambensonaten
 LOCATION:Gewandhaus zu Leipzig\, Augustusplatz 8\, 04109 Leipzig
-DESCRIPTION:Mit dem Auriga Quartett.
+DESCRIPTION:Mit Gambe und Cembalo.
 END:VEVENT
 BEGIN:VEVENT
 UID:sample-3@example.org
 DTSTART;TZID=Europe/Berlin:20270307T110000
 DTEND;TZID=Europe/Berlin:20270307T123000
-SUMMARY:Matinee – Clara Schumann & Fanny Hensel
+SUMMARY:Matinee – Jacquet de La Guerre & Couperin
 LOCATION:Beethoven-Haus\, Bonngasse 20\, 53111 Bonn
 URL:https://example.org/tickets/bonn
 END:VEVENT
@@ -49,14 +49,14 @@ BEGIN:VEVENT
 UID:sample-4@example.org
 DTSTART;VALUE=DATE:20270514
 DTEND;VALUE=DATE:20270517
-SUMMARY:Meisterkurs Klavier
+SUMMARY:Meisterkurs Cembalo
 LOCATION:Schloss Elmau\, 82493 Krün
 END:VEVENT
 BEGIN:VEVENT
 UID:sample-5@example.org
 DTSTART;TZID=Europe/Berlin:20270619T193000
 DTEND;TZID=Europe/Berlin:20270619T213000
-SUMMARY:Ravel: Klavierkonzert G-Dur
+SUMMARY:Bach: Cembalokonzert d-Moll BWV 1052
 LOCATION:Wiener Konzerthaus\, Lothringerstraße 20\, 1030 Wien
 DESCRIPTION:Solistin mit Orchester. Programm folgt.
 END:VEVENT
