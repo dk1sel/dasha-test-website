@@ -20,6 +20,7 @@
     <ul>
       <li><a href="#ueber">Über mich</a></li>
       <li><a href="#konzerte">Konzerte</a></li>
+      <!-- <li><a href="#galerie">Galerie</a></li> – einblenden, sobald Bilder da sind -->
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
   </nav>
@@ -70,6 +71,16 @@
     </div>
   </section>
 
+  <section class="section section--soft" id="galerie" hidden>
+    <div class="wrap">
+      <p class="eyebrow">Galerie</p>
+      <h2>Bilder</h2>
+      <!-- Galerie: 4 bis 10 Bilder. Dateien in assets/galerie/ ablegen und hier je ein <figure> eintragen.
+           Bildquellen und Lizenzen stehen in assets/galerie/QUELLEN.md. -->
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+
   <section class="section section--light" id="kontakt">
     <div class="wrap contact">
       <p class="eyebrow">Kontakt</p>
@@ -88,6 +99,13 @@
 </footer>
 
 <script src="vendor/leaflet/leaflet.js"></script>
+<dialog class="lightbox" id="lightbox" aria-label="Bildansicht">
+  <button class="lightbox__close" type="button" aria-label="Schließen">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Vorheriges Bild">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Nächstes Bild">›</button>
+</dialog>
+
 <script src="assets/app.js"></script>
 </body>
 </html>

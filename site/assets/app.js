@@ -1,3 +1,29 @@
+// Galerie: Klick auf ein Bild öffnet es groß, mit Pfeiltasten blättern.
+(function () {
+  const links = [...document.querySelectorAll('#gallery a')];
+  const box = document.getElementById('lightbox');
+  if (!links.length || !box || !box.showModal) return;
+  const img = box.querySelector('img');
+  const cap = box.querySelector('figcaption');
+  let i = 0;
+  const show = (n) => {
+    i = (n + links.length) % links.length;
+    const a = links[i];
+    img.src = a.href;
+    img.alt = a.querySelector('img').alt;
+    cap.textContent = a.closest('figure').querySelector('figcaption')?.textContent || '';
+  };
+  links.forEach((a, n) => a.addEventListener('click', (ev) => { ev.preventDefault(); show(n); box.showModal(); }));
+  box.querySelector('.lightbox__close').addEventListener('click', () => box.close());
+  box.querySelector('.lightbox__nav--prev').addEventListener('click', () => show(i - 1));
+  box.querySelector('.lightbox__nav--next').addEventListener('click', () => show(i + 1));
+  box.addEventListener('click', (ev) => { if (ev.target === box) box.close(); });
+  box.addEventListener('keydown', (ev) => {
+    if (ev.key === 'ArrowLeft') show(i - 1);
+    if (ev.key === 'ArrowRight') show(i + 1);
+  });
+})();
+
 // Rendert data/events.json (erzeugt von scripts/build.mjs) als Terminliste + Leaflet-Karte.
 (async function () {
   document.getElementById('year').textContent = new Date().getFullYear();
