@@ -4,7 +4,7 @@ Statische Website mit Veranstaltungskalender aus Google Calendar.
 
 ## Wie es funktioniert
 
-1. Eine GitHub Action (`.github/workflows/deploy.yml`) läuft bei jedem Push, alle 6 Stunden und auf Knopfdruck.
+1. Eine GitHub Action (`.github/workflows/deploy.yml`) läuft bei jedem Push, einmal täglich (frühmorgens) und auf Knopfdruck.
 2. `scripts/build.mjs` lädt den iCal-Feed des Google-Kalenders, löst Serientermine auf,
    geokodiert die Orte über Nominatim (OpenStreetMap) und schreibt `site/data/events.json`.
 3. Der Ordner `site/` wird auf GitHub Pages veröffentlicht. Im Browser rendert `site/assets/app.js`
