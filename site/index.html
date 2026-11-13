@@ -11,13 +11,14 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
+<a class="skip-link" href="#inhalt">Zum Inhalt springen</a>
 
 <header class="hero" id="top">
   <!-- Hero-Bild: assets/hero.svg durch ein eigenes Foto ersetzen (z. B. assets/hero.jpg) -->
   <img class="hero__image" src="assets/hero.svg" alt="" aria-hidden="true">
   <div class="hero__keyboard" aria-hidden="true"></div>
   <nav class="nav" aria-label="Hauptnavigation">
-    <a class="nav__brand" href="#top">E<span>·</span>M</a>
+    <a class="nav__brand" href="#top" aria-label="Startseite – Erika Mustermann">E<span>·</span>M</a>
     <ul>
       <li><a href="#ueber">Über mich</a></li>
       <li><a href="#konzerte">Konzerte</a></li>
@@ -33,7 +34,7 @@
   </div>
 </header>
 
-<main>
+<main id="inhalt" tabindex="-1">
   <section class="section section--light" id="ueber">
     <div class="wrap about">
       <div class="about__text">
@@ -44,7 +45,7 @@
         <p>Heute spiele ich Cembalo-Rezitale, Kammermusik und Basso continuo in Konzertsälen, Kirchen und auf Festivals im In- und Ausland. Mein Repertoire reicht von den englischen Virginalisten über Bach, Couperin und Rameau bis zu zeitgenössischen Werken für Cembalo; besonders am Herzen liegen mir die Sonaten Scarlattis, die Suiten Bachs und die oft übersehenen Werke von Komponistinnen wie Élisabeth Jacquet de La Guerre.</p>
         <p>Neben dem Konzertieren unterrichte ich leidenschaftlich gern&nbsp;– in Meisterkursen und mit einer kleinen eigenen Klasse.</p>
       </div>
-      <aside class="about__aside">
+      <div class="about__aside">
         <blockquote>
           <p>„Das Schönste am Cembalo ist der Moment, bevor der erste Kiel die Saite anreißt.“</p>
         </blockquote>
@@ -53,7 +54,7 @@
           <div><dt>Schwerpunkte</dt><dd>Bach, Couperin, Scarlatti, Komponistinnen des Barock</dd></div>
           <div><dt>Formate</dt><dd>Rezital, Kammermusik, Basso continuo, Meisterkurs</dd></div>
         </dl>
-      </aside>
+      </div>
     </div>
   </section>
 
