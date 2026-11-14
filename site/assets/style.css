@@ -175,7 +175,7 @@ blockquote p { font-family: var(--serif); font-style: italic; font-size: clamp(1
 
 /* ---------- Barrierefreiheit ---------- */
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
-.skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 100; padding: .7rem 1.2rem; background: var(--ivory); color: var(--ink); font-weight: 500; text-decoration: none; transition: top .15s; }
+.skip-link { position: absolute; left: 1rem; top: -4rem; z-index: 1200; padding: .7rem 1.2rem; background: var(--ivory); color: var(--ink); font-weight: 500; text-decoration: none; transition: top .15s; }
 .skip-link:focus { top: 1rem; }
 main:focus { outline: none; }
 .event__show { padding: 0; background: none; border: 0; border-bottom: 1px solid currentColor; color: var(--brass-light); font: inherit; font-size: .85rem; letter-spacing: .04em; cursor: pointer; }
@@ -193,3 +193,17 @@ main:focus { outline: none; }
 .event--past .event__meta { opacity: .75; }
 .event__badge { display: inline-block; vertical-align: .2em; margin-right: .5rem; padding: .15rem .45rem; border: 1px solid rgba(246, 240, 228, .45); font-family: var(--sans); font-size: .62rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--ivory-2); }
 .event--past.event--mapped:hover, .event--past.is-active { border-left-color: rgba(246, 240, 228, .45); background: rgba(246, 240, 228, .04); }
+
+/* ---------- Fixierte Navigationsleiste ---------- */
+/* z-index über den Leaflet-Ebenen (bis 1000), damit die Karte nicht über die Leiste scrollt */
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1100; color: var(--ivory); transition: background .3s, box-shadow .3s; }
+.topbar .nav { transition: padding .3s; }
+.topbar.is-scrolled { background: var(--ebony); box-shadow: 0 1px 0 rgba(201, 164, 92, .35); }
+.topbar.is-scrolled .nav { padding: .75rem 0; }
+/* Platz, den die Leiste vorher im Titelbild eingenommen hat */
+.hero { padding-top: var(--nav-h); }
+:root { --nav-h: 100px; }
+@media (max-width: 440px) { :root { --nav-h: 92px; } }
+/* Rechtliche Seiten: Leiste bleibt beim Scrollen oben */
+.page-header.topbar { position: sticky; }
+@media (prefers-reduced-motion: reduce) { .topbar, .topbar .nav { transition: none; } }
